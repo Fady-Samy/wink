@@ -1,0 +1,10 @@
+<div class="search-field position-relative">
+    <input type="text" class="form-control "  [value]="value" (input)="search($event)" placeholder="Search..." id="">
+    @if(isLoading()){
+        <div class="search-icon primary-loader">
+            <app-lottie-loader [icon]="'https://lottie.host/c73d3a4f-45b9-459f-9eae-48af69b84e06/TBnaRCS8ME.json'" [iconWidth]="'17px'" [iconHeight]="'17px'"></app-lottie-loader>
+        </div>
+    }@else {
+        <i class="pi pi-search search-icon"></i>
+    }
+</div>

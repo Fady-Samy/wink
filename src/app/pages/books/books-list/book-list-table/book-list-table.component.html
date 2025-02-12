@@ -1,0 +1,43 @@
+<div class="custom-tables table-responsive">
+    <table class="table table-centered">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Language</th>
+                <th>No. of Pages</th>
+                <th>Description</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of dataSource">
+                <td>
+                    <p-image [src]="data.volumeInfo.imageLinks.smallThumbnail" alt="Image" width="50" height="50"
+                        [preview]="true" />
+                </td>
+                <td>
+                    <div class="d-flex flex-column gap-2">
+                        <span class="truncate-text">
+                            {{data.volumeInfo.title}}
+                        </span>
+                        <p-rating [(ngModel)]="data.volumeInfo.ratingsCount" [stars]="5" [readonly]="true"
+                            [cancel]="false" />
+                    </div>
+                </td>
+                <td style="width: 150px;">{{data.volumeInfo.publisher}}</td>
+                <td>{{data.volumeInfo.language}}</td>
+                <td style="width: 120px;">{{data.volumeInfo.pageCount}}</td>
+                <td style="max-width: 1500px;">
+                    <span class="truncate-text">
+                        {{data.volumeInfo.description}}
+                    </span>
+                </td>
+                <td class="text-center">
+                    <i role="button" class="pi pi-eye" [routerLink]="['/book-details',data.id]"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

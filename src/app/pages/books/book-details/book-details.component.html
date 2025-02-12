@@ -1,0 +1,38 @@
+@if(isLoading()){
+
+}@else {
+    <div class="custom-card p-4">
+    
+        <div class="row">
+            <div class="col-md-3 thumbnail-container mb-3 mb-lg-0">
+                <img [src]="bookData()!.volumeInfo.imageLinks.thumbnail" alt="">
+            </div>
+            <div class="col-md-9">
+                <div class="d-flex flex-column gap-3">
+                    <div>
+                        <h3>{{bookData()!.volumeInfo.title}} [{{bookData()!.volumeInfo.language}}]</h3>
+                        <div class="d-flex flex-column gap-2">
+                            <span class="text-muted">{{bookData()!.volumeInfo.subtitle}}</span>
+                            <span>By: {{bookData()!.volumeInfo.publisher}} - {{bookData()!.volumeInfo.publishedDate}}</span>
+                            <p-rating class="mt-2" [(ngModel)]="bookData()!.volumeInfo.ratingsCount" [stars]="5" [readonly]="true"
+                                            [cancel]="false" />
+                        </div>
+                        <a class="d-flex align-items-center gap-2 mt-3 fit-content" [href]="bookData()?.volumeInfo?.infoLink" target="_blank">
+                            <i class="pi pi-external-link"></i>
+                            <span>Info</span>
+                        </a>
+
+                    </div>
+                    <hr>
+                    <div>
+                        <h6>Description</h6>
+                        <div [innerHTML]="bookData()!.volumeInfo.description">
+                            <!-- {{bookData()!.volumeInfo.description}} -->
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+}

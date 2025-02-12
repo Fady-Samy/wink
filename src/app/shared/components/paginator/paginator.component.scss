@@ -1,0 +1,58 @@
+:host{
+    .rows-select{
+        border: 0;
+        background-color: transparent;
+        outline: none;
+        color: rgb(30,41,59);
+    }
+}
+::ng-deep {
+
+    .pagination{
+        display: flex !important;
+        gap: 1rem !important;
+        --bs-pagination-disabled-bg: transparent !important;
+        --bs-pagination-disabled-border-color: transparent !important;
+    }
+    .page-link {
+        min-width: 40px !important;
+        background-color: transparent !important;
+        border: none !important;
+        color: rgb(30,41,59);
+        display: flex;
+        justify-content: center;
+       
+    }
+    .page-link:focus {
+        box-shadow: none !important;
+    }
+
+    .active > .page-link, .page-link.active {
+        color:rgb(30,41,59) !important;
+        background-color: white !important;
+        padding-right:0.75rem !important;
+        padding-left:0.75rem !important;
+        box-shadow: 0px 3px 5px #0000000b !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 0.6rem !important;
+        position: relative;
+        &::after{
+            content: url('../../../../assets/images/ribbon.png');
+            position: absolute;
+            top: -2px;
+            inset-inline-start: 0;
+            z-index: -1;
+        }
+        
+    }
+
+}
+
+@media (max-width:395px) {
+
+    ::ng-deep {
+        .pagination{
+            gap: 0.2rem !important;
+        }
+    }
+  }

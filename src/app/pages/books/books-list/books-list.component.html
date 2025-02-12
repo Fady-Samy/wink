@@ -1,0 +1,10 @@
+<div class="container custom-card w-100 p-3">
+    <app-search-field  (onSearch)="search($event)"></app-search-field>
+    @if(isLoading()){
+        <app-lottie-loader></app-lottie-loader>
+    }@else{
+    <app-book-list-table [dataSource]="dataSource()"></app-book-list-table>
+    }
+    <app-paginator [totalCount]="paginator$.getValue().length" [pageNumber]="paginator$.getValue().pageIndex" (changePage)="changePage()"></app-paginator>
+
+</div>
