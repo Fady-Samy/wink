@@ -32,16 +32,15 @@ export class BooksListComponent {
     this.bookService.getAll(this.paginator$.getValue().pageIndex, this.paginator$.getValue().pageSize, this.searchString())
       .pipe(
         tap((result: Books) => {
-          if (result.items.length) {
+          if (result.items) {
             this.dataSource.set(result.items)
             result.totalItems!=0 && this.paginatorService.updatePaginatorLength(result.totalItems)
           } else {
             this.dataSource.set([])
+            this.paginatorService.resetPaginator()
           }
         },),
-        finalize(() => { setTimeout(() => {
-          this.isLoading.set(false)
-        }, 50); }),
+        finalize(() => { this.isLoading.set(false)}),
         takeUntil(this._unsubscribe$),
       )
       .subscribe();
