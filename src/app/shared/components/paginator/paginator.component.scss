@@ -18,7 +18,7 @@
         min-width: 40px !important;
         background-color: transparent !important;
         border: none !important;
-        color: rgb(30,41,59);
+        color: black !important;
         display: flex;
         justify-content: center;
        
@@ -28,7 +28,7 @@
     }
 
     .active > .page-link, .page-link.active {
-        color:rgb(30,41,59) !important;
+        color:black !important;
         background-color: white !important;
         padding-right:0.75rem !important;
         padding-left:0.75rem !important;

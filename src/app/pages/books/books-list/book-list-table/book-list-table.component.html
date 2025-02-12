@@ -26,12 +26,12 @@
                             [cancel]="false" />
                     </div>
                 </td>
-                <td style="width: 150px;">{{data.volumeInfo.publisher}}</td>
+                <td style="width: 150px;">{{data.volumeInfo.publisher ?? '--'}}</td>
                 <td>{{data.volumeInfo.language}}</td>
                 <td style="width: 120px;">{{data.volumeInfo.pageCount}}</td>
                 <td style="max-width: 1500px;">
                     <span class="truncate-text">
-                        {{data.volumeInfo.description}}
+                        {{data.volumeInfo.description ?? '--'}}
                     </span>
                 </td>
                 <td class="text-center">

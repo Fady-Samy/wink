@@ -23,3 +23,21 @@ body{
 html, body { 
     height: 100%;
 }
+
+// Scroll style
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1e2cb;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-thumb {
+    background: #eac16b;
+    border-radius: 5px;
+  }
+  
