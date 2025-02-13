@@ -1,5 +1,5 @@
 <div class="container custom-card w-100 p-3">
-    <app-search-field  (onSearch)="search($event)"></app-search-field>
+    <app-search-field  [value]="searchString()" (onSearch)="search($event)"></app-search-field>
     @if(isLoading()){
         <app-lottie-loader></app-lottie-loader>
     }@else if(dataSource().length){

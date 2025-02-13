@@ -31,6 +31,7 @@ export class BooksListComponent {
   }
   ngOnInit() {
     this.queryParams['page'] && this.paginatorService.updatePaginatorIndex(this.queryParams['page']);
+    this.queryParams['search'] && this.searchString.set(this.queryParams['search']);
     this.getData()
   }
 
@@ -63,6 +64,10 @@ export class BooksListComponent {
 
   search(event:string){
     this.searchString.set(event);
+    this.router.navigate([], {
+      queryParams: { search: this.searchString() },
+      queryParamsHandling: 'merge',
+    });
     this.paginatorService.resetPaginator()
     this.getData()
   }
