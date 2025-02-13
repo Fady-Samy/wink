@@ -1,0 +1,14 @@
+.theme-button{
+    position: fixed;
+    top: 20%;
+    transform: translateY(-20%);
+    inset-inline-end: 0;
+}
+
+
+@media (max-width:1024px){
+    .theme-button{
+        top: unset;
+        bottom: 0;
+    }
+}

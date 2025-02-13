@@ -3,14 +3,16 @@
         <div class="d-flex flex-wrap align-items-centetr justify-content-center gap-3">
             <ngb-pagination class="pagination pagination-rounded justify-content-center mt-3" [collectionSize]="totalCount" [maxSize]="4" [page]="pageNumber"
             [rotate]="true" [ellipses]="false" [boundaryLinks]="false" (pageChange)="change($event)"></ngb-pagination>
-            <div class="d-flex align-items-center gap-4">
-                <span>Rows per page</span>
-                <select class="rows-select mt-1" name="" id="" (change)="changeSize($event)">
-                    @for (item of paginator$.getValue().pageSizeOptions; track $index) {
-                        <option>{{item}}</option>
-                    }
-                </select>
-            </div>
+            @if(showPageSize){
+                <div class="d-flex align-items-center gap-4">
+                    <span>Rows per page</span>
+                    <select class="rows-select mt-1" name="" id="" (change)="changeSize($event)">
+                        @for (item of paginator$.getValue().pageSizeOptions; track $index) {
+                            <option>{{item}}</option>
+                        }
+                    </select>
+                </div>
+            }
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { Subject, tap, finalize, takeUntil } from 'rxjs';
+import { Subject, tap, finalize, takeUntil, catchError } from 'rxjs';
 import { BookItem, Books } from '../../../shared/models/books';
 import { BookService } from '../../../shared/services/book.service';
 import { PaginatorService } from '../../../shared/services/paginator.service';
@@ -36,14 +36,22 @@ export class BooksListComponent {
             this.dataSource.set(result.items)
             result.totalItems!=0 && this.paginatorService.updatePaginatorLength(result.totalItems)
           } else {
-            this.dataSource.set([])
-            this.paginatorService.resetPaginator()
+            this.resetData()
           }
         },),
         finalize(() => { this.isLoading.set(false)}),
         takeUntil(this._unsubscribe$),
+        catchError((err)=>{
+          this.resetData
+          throw err
+        })
       )
       .subscribe();
+  }
+
+  resetData(){
+    this.dataSource.set([])
+    this.paginatorService.resetPaginator()
   }
 
   search(event:string){
@@ -52,11 +60,9 @@ export class BooksListComponent {
     this.getData()
   }
 
-
   changePage() {
     this.getData()
   }
-
 
  ngOnDestroy(): void {
     this.paginatorService.resetPaginator()

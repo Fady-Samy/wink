@@ -1,18 +1,27 @@
 .custom-card{
     border-radius: 1rem !important;
-    background: rgba(16, 1, 1, 0.189);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: var(--card-bg);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px var(--card-shadow);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
 }
 
 a{
     text-decoration: none !important;
-    color: white !important;
+    color: var(--text-white) !important;
 }
 
 .fit-content{
     width: fit-content;
+}
+
+
+.truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
 }

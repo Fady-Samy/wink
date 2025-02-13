@@ -8,20 +8,47 @@
 @import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
 @import "../node_modules/primeng/resources/primeng.css";
 
-body{
-    padding: 0;
-    margin: 0; 
-    box-sizing: border-box;
-    background-image: url('assets/images/main-bg.jpg');
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+:root.light-theme{
+  --primary-color: #eac16b;
+  --secondary-color: #f1e2cb;
+  --text-black:black;
+  --text-white:white;
+  --table-row-bg:#ffffff8f;
+  --table-action-separator:grey;
+  --rating:#ffa41c;
+  --card-bg:#10010130;
+  --card-shadow:#0000001a;
+  --background:url('assets/images/main-bg.jpg');
+}
 
+:root.dark-theme{
+  --primary-color: #eac16b;
+  --secondary-color: #f1e2cb;
+  --text-black:white;
+  --text-white:white;
+  --table-row-bg:#ffffff8f;
+  --table-action-separator:grey;
+  --rating:#ffa41c;
+  --card-bg:#cabbbb30;
+  --card-shadow:#0000001a;
+  --background:black;
+  --bs-secondary-color:rgb(170, 170, 170); //bootstrap text muted color
+}
+
+body{
+  padding: 0;
+  margin: 0; 
+  box-sizing: border-box;
+  background: var(--background) !important;
+  background-size: 100% 100% !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  color: var(--text-black) !important;
 }
 
 html, body { 
-    height: 100%;
+  height: 100%;
 }
 
 // Scroll style
@@ -31,13 +58,13 @@ html, body {
   }
   
   ::-webkit-scrollbar-track {
-    background: #f1e2cb;
+    background: var(--secondary-color);
     border-radius: 5px;
   }
   
   ::-webkit-scrollbar-button,
   ::-webkit-scrollbar-thumb {
-    background: #eac16b;
+    background: var(--primary-color);
     border-radius: 5px;
   }
   

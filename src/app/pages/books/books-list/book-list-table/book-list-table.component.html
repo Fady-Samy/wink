@@ -6,7 +6,7 @@
                 <th>Title</th>
                 <th>Publisher</th>
                 <th>Language</th>
-                <th>No. of Pages</th>
+                <th>Pages</th>
                 <th>Description</th>
                 <th>Details</th>
             </tr>
@@ -34,8 +34,10 @@
                         {{data.volumeInfo.description ?? '--'}}
                     </span>
                 </td>
-                <td class="text-center">
-                    <i role="button" class="pi pi-eye" [routerLink]="['/book-details',data.id]"></i>
+                <td>
+                    <div class="d-flex table-actions-column">
+                        <i role="button" class="pi pi-eye" [routerLink]="['/book-details',data.id]"></i>
+                    </div>
                 </td>
             </tr>
         </tbody>

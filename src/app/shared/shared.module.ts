@@ -7,6 +7,8 @@ import { PrimeModule } from '../prime/prime.module';
 import { LottieLoaderComponent } from './components/lottie-loader/lottie-loader.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { SearchFieldComponent } from './components/search-field/search-field.component';
+import { EmptyStateComponent } from './components/empty-state/empty-state.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 
 
@@ -14,7 +16,9 @@ import { SearchFieldComponent } from './components/search-field/search-field.com
   declarations: [
     PaginatorComponent,
     LottieLoaderComponent,
-    SearchFieldComponent
+    SearchFieldComponent,
+    EmptyStateComponent,
+    ThemeToggleComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,9 @@ import { SearchFieldComponent } from './components/search-field/search-field.com
     LottieComponent,
     PaginatorComponent,
     LottieLoaderComponent,
-    SearchFieldComponent
+    SearchFieldComponent,
+    EmptyStateComponent,
+    ThemeToggleComponent
   ]
 })
 export class SharedModule { }

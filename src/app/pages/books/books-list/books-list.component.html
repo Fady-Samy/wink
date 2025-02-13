@@ -5,11 +5,8 @@
     }@else if(dataSource().length){
     <app-book-list-table [dataSource]="dataSource()"></app-book-list-table>
     }@else {
-        <div class="d-flex flex-column align-items-center gap-2">
-            <app-lottie-loader [icon]="'https://lottie.host/c73d3a4f-45b9-459f-9eae-48af69b84e06/TBnaRCS8ME.json'" [iconWidth]="'150px'" [iconHeight]="'150px'" [containerHeight]="'250px'"></app-lottie-loader>
-            <h6>No Results Found</h6>
-        </div>
+        <app-empty-state></app-empty-state>
     }
-    <app-paginator [totalCount]="paginator$.getValue().length" [pageNumber]="paginator$.getValue().pageIndex" (changePage)="changePage()"></app-paginator>
+    <app-paginator [totalCount]="paginator$.getValue().length" [pageNumber]="paginator$.getValue().pageIndex" (changePage)="changePage()" [showPageSize]="dataSource().length>0"></app-paginator>
 
 </div>

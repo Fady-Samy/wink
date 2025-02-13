@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookService } from '../../../shared/services/book.service';
-import { finalize, Subject, takeUntil, tap } from 'rxjs';
+import { catchError, finalize, Subject, takeUntil, tap } from 'rxjs';
 import { BookItem } from '../../../shared/models/books';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-book-details',
@@ -15,6 +16,8 @@ export class BookDetailsComponent {
   id = signal<number|any>(null)
   bookData = signal<BookItem|null>(null)
   isLoading = signal<boolean>(false)
+  invalidId = signal<boolean>(false)
+
 
   constructor(
     private route:ActivatedRoute,
@@ -40,6 +43,10 @@ export class BookDetailsComponent {
       },),
       finalize(()=>this.isLoading.set(false)),
       takeUntil(this._unsubscribe$),
+      catchError((err)=>{
+        this.invalidId.set(true)
+        throw err
+      })
     )
     .subscribe();
   }

@@ -10,6 +10,7 @@ export class PaginatorComponent implements OnInit {
 
   @Input() totalCount:any;
   @Input() pageNumber:number =0;
+  @Input() showPageSize:boolean =true;
   @Output() changePage = new EventEmitter<any>();
   paginator$ = this.paginatorService.paginator$
 

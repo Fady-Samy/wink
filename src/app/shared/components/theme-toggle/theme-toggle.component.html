@@ -1,0 +1,4 @@
+<button class="toggle-btn d-flex justify-content-center align-items-center"
+    (click)="themeService.toggleTheme();">
+    <i class="pi" [ngClass]="themeService.currentTheme()=='light' ? 'pi-moon' : 'pi-sun'"></i>
+</button>
