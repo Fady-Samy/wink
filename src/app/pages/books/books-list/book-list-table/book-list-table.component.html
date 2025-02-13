@@ -18,7 +18,7 @@
                         [preview]="true" />
                 </td>
                 <td>
-                    <div class="d-flex flex-column gap-2">
+                    <div role="button" class="d-flex flex-column gap-2" [routerLink]="['/book-details',data.id]">
                         <span class="truncate-text">
                             {{data.volumeInfo.title}}
                         </span>

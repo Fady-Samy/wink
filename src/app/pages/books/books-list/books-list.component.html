@@ -7,6 +7,6 @@
     }@else {
         <app-empty-state></app-empty-state>
     }
-    <app-paginator [totalCount]="paginator$.getValue().length" [pageNumber]="paginator$.getValue().pageIndex" (changePage)="changePage()" [showPageSize]="dataSource().length>0"></app-paginator>
+    <app-paginator (changePage)="changePage()" [showPageSize]="dataSource().length>0"></app-paginator>
 
 </div>

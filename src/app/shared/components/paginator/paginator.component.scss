@@ -1,54 +1,38 @@
-:host{
-    .rows-select{
-        border: 0;
-        background-color: transparent;
-        outline: none;
-        color: var(--text-black);
-    }
-}
+
 ::ng-deep {
 
-    .pagination{
-        display: flex !important;
-        gap: 1rem !important;
-        --bs-pagination-disabled-bg: transparent !important;
-        --bs-pagination-disabled-border-color: transparent !important;
-    }
-    .page-link {
-        min-width: 40px !important;
-        background-color: transparent !important;
-        border: none !important;
-        color: var(--text-black) !important;
-        display: flex;
-        justify-content: center;
-       
-    }
-    .page-link:focus {
-        box-shadow: none !important;
+    // Paginator
+    .p-paginator{
+        background: unset ;
     }
 
-    .active > .page-link, .page-link.active {
-        color:var(--text-black) !important;
-        background-color: var(--text-white) !important;
-        padding: auto 0.75rem !important;
-        border-radius: 0.6rem !important;
-        position: relative;
+    .p-paginator-first,.p-paginator-last{
+        display: none;
+    }
+    .p-paginator-page:not(.p-highlight):hover, .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover{
+        background: unset;
+    }
+    .p-dropdown {
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+    .p-highlight:not(.p-dropdown-item){
+        border-radius: 1rem;
+        background-color: transparent;
+        color: var(--text-white);
         &::after{
-            content: url('../../../../assets/images/ribbon.png');
-            position: absolute;
-            top: -2px;
-            inset-inline-start: 0;
-            z-index: -1;
+            content: url('../../../../assets/images/ribbon.png') !important;
+            position: absolute !important;
+            top: -2px !important;
+            inset-inline-start: 50% !important;
+            transform: translateX(-50%);
+            z-index: -1 !important;
         }
+        // padding: 0.2rem;
     }
-
+    .p-dropdown-panel .p-dropdown-items{
+        padding: 0;
+        margin-bottom: 0;
+    }
 }
-
-@media (max-width:395px) {
-
-    ::ng-deep {
-        .pagination{
-            gap: 0.2rem !important;
-        }
-    }
-  }

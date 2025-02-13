@@ -22,14 +22,9 @@ export class PaginatorComponent implements OnInit {
   }
 
   change(event:any){
-    this.paginatorService.updatePaginatorIndex(event)
-    this.changePage.emit(event)
-  }
-
-  changeSize(event:any){
-    this.paginatorService.resetPaginator()
-    this.paginatorService.updatePaginatorPageSize(parseInt(event.target.value))
-    this.changePage.emit(event)
+    this.paginatorService.updatePaginatorIndex(event.page+1)
+    this.paginatorService.updatePaginatorPageSize(event.rows)
+    this.changePage.emit()
   }
 
 }

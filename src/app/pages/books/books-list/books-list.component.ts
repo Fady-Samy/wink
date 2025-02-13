@@ -3,6 +3,7 @@ import { Subject, tap, finalize, takeUntil, catchError } from 'rxjs';
 import { BookItem, Books } from '../../../shared/models/books';
 import { BookService } from '../../../shared/services/book.service';
 import { PaginatorService } from '../../../shared/services/paginator.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-books-list',
@@ -16,14 +17,20 @@ export class BooksListComponent {
   dataSource = signal<BookItem[]>([])
   isLoading = signal<boolean>(false)
   searchString = signal<string>("")
+  queryParams:any = null
   
   constructor(
     private bookService: BookService,
-    private paginatorService:PaginatorService
+    private paginatorService:PaginatorService,
+    private route:ActivatedRoute,
+    private router:Router,
   ) {
-
+    this.route.queryParams.subscribe((params) => {
+      this.queryParams = params
+    });
   }
   ngOnInit() {
+    this.queryParams['page'] && this.paginatorService.updatePaginatorIndex(this.queryParams['page']);
     this.getData()
   }
 
@@ -60,7 +67,12 @@ export class BooksListComponent {
     this.getData()
   }
 
-  changePage() {
+
+  changePage(){
+    this.router.navigate([], {
+      queryParams: { page: this.paginator$.getValue().pageIndex },
+      queryParamsHandling: 'merge',
+    });
     this.getData()
   }
 

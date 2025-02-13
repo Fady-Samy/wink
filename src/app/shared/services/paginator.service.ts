@@ -12,7 +12,6 @@ export class PaginatorService {
     pageSize: 5,
     previousPageIndex: 0,
     totalPages:0,
-    pageSizeOptions: [5,10,15,20],
   })
 
   constructor() {}
@@ -48,10 +47,9 @@ export class PaginatorService {
     this.paginator$.next({
       length: 0,
       pageIndex: 1,
-      pageSize: 10,
+      pageSize: 5,
       previousPageIndex: 0,
       totalPages: 0,
-      pageSizeOptions: this.paginator$.getValue().pageSizeOptions,
     })
   }
 }
