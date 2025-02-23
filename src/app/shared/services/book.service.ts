@@ -15,7 +15,7 @@ export class BookService {
   }
 
   getAll(startIndex: number, maxResults: number,search:string): Observable<Books> {
-    let params = new HttpParams().append('startIndex', startIndex).append('maxResults', maxResults)
+    let params = new HttpParams().append('startIndex', ((startIndex-1)*maxResults)).append('maxResults', maxResults)
     search ?  params = params.append('q', search) : params = params.append('q', '{search}');
     return this.http.get<Books>(this.API_URLBooks,{params});
   }
